@@ -18,7 +18,7 @@ export default function BuildWebpackConfig(options: BuildOptions): webpack.Confi
         module: {
             rules: buildLoaders(options.isDev),
         },
-        resolve: buildResolvers(),
+        resolve: buildResolvers(options.paths.src),
         devtool: options.isDev ? "inline-source-map" : undefined,
         devServer:  options.isDev ? buildDevServer(options.port) : undefined,
     };
