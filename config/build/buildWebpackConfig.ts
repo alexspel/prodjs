@@ -7,6 +7,7 @@ import { BuildOptions } from "./types/config";
 
 export default function BuildWebpackConfig(options: BuildOptions): webpack.Configuration {
     return {
+        cache: false,
         mode: options.mode,
         entry: options.paths.entry,
         output: {
@@ -14,7 +15,7 @@ export default function BuildWebpackConfig(options: BuildOptions): webpack.Confi
             path: options.paths.build,
             clean: true,
         },
-        plugins: buildPlugins(options.paths.html),
+        plugins: buildPlugins(options),
         module: {
             rules: buildLoaders(options.isDev),
         },

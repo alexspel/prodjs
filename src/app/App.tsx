@@ -1,16 +1,24 @@
-import './styles/index.scss';
-
+import { Suspense } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classnames/classnames';
-import { Navbar } from 'widgets/Navbar/ui/Navbar';
+import { AppRouter } from './providers/router';
+import { Navbar } from 'widgets/Navbar';
+import { Sidebar } from 'widgets/Sidebar';
 
+import './styles/index.scss';
 
 const App = () => {
-    const { theme, toggleTheme } = useTheme();
+    const { theme } = useTheme();
     return (
         <div className={classNames("app", { hovered: true, selected: true }, [theme])}>
-            <button onClick={toggleTheme}>THEME</button>
-            <Navbar />
+            <Suspense fallback="">
+                <Navbar />
+                <div className='content-page'>
+                    <Sidebar />
+                    <AppRouter />
+                </div>
+            </Suspense>
         </div>
     );
 };
