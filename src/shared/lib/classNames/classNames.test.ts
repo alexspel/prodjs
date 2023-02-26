@@ -12,8 +12,7 @@ describe('classNames', () => {
 
     test('with mods', () => {
         const mods = { hovered: true, outlined: false };
-        expect(
-            classNames('some', mods, ['one', 'two'])
-        ).toBe('some one two hovered');
+        expect(classNames('some', mods, ['one', 'two']))
+            .toBe('some one two hovered');
     });
 });
