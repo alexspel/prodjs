@@ -1,4 +1,6 @@
-import { ButtonHTMLAttributes, FC, useEffect, useState } from 'react';
+import {
+    ButtonHTMLAttributes, FC, useEffect, useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../Button/Button';
 
