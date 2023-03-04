@@ -11,7 +11,7 @@ export default function buildLoaders(isDev: boolean): webpack.RuleSetRule[] {
     const svgLoader = buildSvgLoader();
     const babelLoader = buildBabelLoader();
 
-    const cssLoader = buildCssLoader({ isDev });
+    const cssLoader = buildCssLoader(isDev);
 
     // Если не используем тайпскрипт - нужен babel-loader
     const typescriptLoader = buildTypescriptLoader();
