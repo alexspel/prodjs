@@ -6,4 +6,4 @@ export const ThemeDecorator = (theme: Theme) => (StoryComponent: Story) => (
     <div className={classNames('app', {}, [theme])}>
         <StoryComponent />
     </div>
-)
+);

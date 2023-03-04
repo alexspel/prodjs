@@ -25,4 +25,3 @@ export const Dark = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
-
