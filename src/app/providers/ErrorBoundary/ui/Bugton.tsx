@@ -4,8 +4,11 @@ import {
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
 
+interface BugtonProps {
+    short?: boolean;
+}
 // Компонент для тестирования
-const Bugton: FC = () => {
+const Bugton: FC<BugtonProps> = ({ short }) => {
     const { t } = useTranslation();
     const [error, setError] = useState(false);
     const onThrow = () => setError(true);
@@ -20,7 +23,7 @@ const Bugton: FC = () => {
         <Button
             onClick={onThrow}
         >
-            {t('Throw error')}
+            {t(short ? 'Throw error short' : 'Throw error')}
         </Button>
     );
 };

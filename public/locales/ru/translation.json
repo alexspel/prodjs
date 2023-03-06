@@ -2,10 +2,11 @@
   "Test example": "Тестовый пример",
   "Translate": "Перевод",
   "lang": "Русский",
-  "lang_code": "Рус",
+  "lang code": "Рус",
   "About page": "О сайте",
   "Main page": "Главная страница",
   "Page not found": "Страница не найдена",
-  "Throw error": "Сделать ошибку",
+  "Throw error": "Ошибка",
+  "Throw error short": "Баг",
   "Reload": "Перезагрузить"
 }
