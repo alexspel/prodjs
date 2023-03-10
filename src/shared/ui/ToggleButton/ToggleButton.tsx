@@ -21,7 +21,8 @@ export const ToggleButton: FC<ToggleButtonProps> = (props) => {
         className,
         collapsed,
         onToggle,
-        ...otherProps } = props;
+        ...otherProps
+    } = props;
     const { t } = useTranslation();
     const [label, setLabel] = useState('');
     useEffect(() => {
