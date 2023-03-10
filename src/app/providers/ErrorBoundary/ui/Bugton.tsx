@@ -2,7 +2,7 @@ import {
     FC, useEffect, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
 interface BugtonProps {
     short?: boolean;
@@ -22,6 +22,7 @@ const Bugton: FC<BugtonProps> = ({ short }) => {
     return (
         <Button
             onClick={onThrow}
+            theme={ButtonTheme.OUTLINE}
         >
             {t(short ? 'Throw error short' : 'Throw error')}
         </Button>

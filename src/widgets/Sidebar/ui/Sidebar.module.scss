@@ -38,6 +38,11 @@
     opacity: 1;
     transition: 0.2s opacity;
 }
+.collapsedButton {
+    position: absolute;
+    bottom: 32px;
+    right: -30px;
+}
 
 .collapsed {
     width: var(--sidebar-collapsed-width);
@@ -47,10 +52,10 @@
         flex-direction: column;
         align-items: center;
     }
-    
+
     .item {
         gap: 10px;
-    } 
+    }
 
     .link {
         opacity: 0;
