@@ -4,7 +4,6 @@ import { LangSwitcher } from './LangSwitcher';
 import { ThemeDecorator } from '../../../shared/config/storybook/ThemeDecorator';
 import { Theme } from '../../../app/providers/ThemeProvider';
 
-
 export default {
     title: 'widgets/LangSwitcher',
     component: LangSwitcher,
@@ -13,7 +12,6 @@ export default {
         backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof LangSwitcher>;
-
 
 const Template: ComponentStory<typeof LangSwitcher> = (args) => <LangSwitcher {...args} />;
 

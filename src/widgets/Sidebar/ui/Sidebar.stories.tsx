@@ -4,7 +4,6 @@ import { Sidebar } from './Sidebar';
 import { ThemeDecorator } from '../../../shared/config/storybook/ThemeDecorator';
 import { Theme } from '../../../app/providers/ThemeProvider';
 
-
 export default {
     title: 'widgets/Sidebar',
     component: Sidebar,
@@ -13,7 +12,6 @@ export default {
         backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof Sidebar>;
-
 
 const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
 
