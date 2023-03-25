@@ -1,5 +1,5 @@
 import React, {
-    FC, useCallback, useEffect
+    FC, useCallback, useEffect,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal';

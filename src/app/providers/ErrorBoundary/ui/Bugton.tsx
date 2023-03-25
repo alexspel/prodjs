@@ -1,5 +1,5 @@
 import {
-    FC, useEffect, useState
+    FC, useEffect, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button';

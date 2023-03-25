@@ -1,5 +1,5 @@
 import AppLink, {
-    AppLinkProps, AppLinkTheme
+    AppLinkProps, AppLinkTheme,
 } from './ui/AppLink';
 
 export {
@@ -7,4 +7,3 @@ export {
     AppLinkProps,
     AppLink,
 };
-

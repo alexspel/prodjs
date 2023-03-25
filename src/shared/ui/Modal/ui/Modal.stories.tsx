@@ -16,14 +16,12 @@ const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 export const Light = Template.bind({});
 Light.args = {
     isOpen: true,
-    parent: document.querySelector('#root'),
     children: <div>Привет</div>,
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
     isOpen: true,
-    parent: document.querySelector('#root'),
     children: <div>Привет</div>,
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
