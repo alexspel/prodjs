@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import HomeIcon from 'shared/assets/icons/home.svg';
 import ListIcon from 'shared/assets/icons/list.svg';
-import { RoutePath } from 'shared/config/router';
+import { RoutePath } from 'shared/config/AppRouter';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button';
@@ -15,7 +15,7 @@ interface SidebarProps {
     className?: string;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
+const Sidebar = ({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
     const { t } = useTranslation();
     const onToggle = () => {
@@ -77,3 +77,5 @@ export const Sidebar = ({ className }: SidebarProps) => {
         </div>
     );
 };
+
+export default Sidebar;
