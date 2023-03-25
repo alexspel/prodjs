@@ -6,7 +6,7 @@ interface LoaderProps {
     className?: string;
 }
 
-export const Loader: FC<LoaderProps> = (props) => {
+const Loader: FC<LoaderProps> = (props) => {
     const {
         className,
     } = props;
@@ -19,3 +19,5 @@ export const Loader: FC<LoaderProps> = (props) => {
         </div>
     );
 };
+
+export default Loader;

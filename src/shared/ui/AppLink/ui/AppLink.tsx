@@ -8,12 +8,12 @@ export enum AppLinkTheme {
     SECONDARY = 'secondary'
 }
 
-interface AppLinkProps extends LinkProps {
+export interface AppLinkProps extends LinkProps {
     className?: string;
     theme?: AppLinkTheme
 }
 
-export const AppLink: FC<AppLinkProps> = (props) => {
+const AppLink: FC<AppLinkProps> = (props) => {
     const {
         children,
         to,
@@ -31,3 +31,5 @@ export const AppLink: FC<AppLinkProps> = (props) => {
         </Link>
     );
 };
+
+export default AppLink;
