@@ -1,8 +1,8 @@
+import { LoginModal } from 'features/AuthByUsername';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button';
-import { Modal } from 'shared/ui/Modal';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -17,7 +17,7 @@ export const Navbar = ({ className }: NavbarProps) => {
         setIsOpen(true);
     }, [setIsOpen]);
 
-    const closeModal = useCallback(() => {
+    const onCloseModal = useCallback(() => {
         setIsOpen(false);
     }, [setIsOpen]);
 
@@ -27,10 +27,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                 <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={openModal}>{t('Login')}</Button>
             </div>
 
-            <Modal isOpen={isOpen} onClose={closeModal}>
-                <input type="text" />
-
-            </Modal>
+            <LoginModal onClose={onCloseModal} isOpen={isOpen} lazy />
         </div>
     );
 };

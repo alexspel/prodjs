@@ -3,4 +3,3 @@ import { createAppStore } from './config/store';
 import StoreProvider from './ui/StoreProvider';
 
 export { StoreProvider, createAppStore, StateSchema };
-

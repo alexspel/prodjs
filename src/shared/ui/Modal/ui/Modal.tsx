@@ -1,15 +1,16 @@
 import React, {
-    FC, useCallback, useEffect,
+    FC, useCallback, useEffect, useState
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal';
 import cls from './Modal.module.scss';
 
-interface ModalProps {
+export interface ModalProps {
     parent?: HTMLElement;
     className?: string;
     isOpen?: boolean;
     onClose?: () => void;
+    lazy?: boolean;
 }
 
 const Modal: FC<ModalProps> = (props) => {
@@ -19,7 +20,10 @@ const Modal: FC<ModalProps> = (props) => {
         children,
         onClose,
         isOpen,
+        lazy = false,
     } = props;
+
+    const [isMounted, setIsMounted] = useState(false);
 
     const closeHandler = useCallback(() => {
         if (onClose) {
@@ -46,9 +50,17 @@ const Modal: FC<ModalProps> = (props) => {
         };
     }, [isOpen, onKeyDown]);
 
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
+
     const classes = classNames(cls.Modal, {
         [cls.opened]: isOpen,
     }, [className]);
+
+    if (lazy && !isMounted) return null;
 
     return (
         <Portal element={parent}>

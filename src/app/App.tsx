@@ -13,7 +13,7 @@ const App = () => {
     return (
         <div
             className={
-                classNames('app', { hovered: true, selected: true }, [theme])
+                classNames('app', {}, [theme])
             }
         >
             <Suspense fallback="">

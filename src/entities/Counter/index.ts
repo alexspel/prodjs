@@ -8,4 +8,3 @@ export {
     counterReducer,
     CounterSchema,
 };
-
