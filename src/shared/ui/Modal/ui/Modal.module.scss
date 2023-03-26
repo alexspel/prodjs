@@ -8,11 +8,6 @@
     opacity: 0;
     pointer-events: none;
     transition: 0.3s all;
-
-    &.opened {
-        opacity: 1;
-        pointer-events: all; 
-    }
 }
 
 .overlay {
@@ -29,10 +24,43 @@
     border-radius: 10px;
     padding: 20px;
     max-width: 60%;
+}
+
+.Modal.opening,
+.Modal.opened {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.opening > .content {
+    transition: 0.01s transform;
+    transform: scale(0.2);
+}
+
+.opened > .content {
+    transition: 0.3s transform;
+    transform: scale(1);
+}
+
+.opened.closing > .content {
     transition: 0.3s transform;
     transform: scale(0.2);
-
-    &.opened {
-        transform: scale(1); 
-    }
 }
+
+// .content {
+//     background: var(--bg-color);
+//     border-radius: 10px;
+//     padding: 20px;
+//     max-width: 60%;
+//     transition: 0.3s transform;
+//     transform: scale(0.2);
+
+//     &.opened {
+//         transition: 0.3s transform;
+//         transform: scale(1);
+//     }
+// }
+// .isopening {
+//     transition: 0.3s transform;
+//     transform: scale(0.2);
+// }

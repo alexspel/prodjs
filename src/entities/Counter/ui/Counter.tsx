@@ -1,17 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'shared/ui/Button';
-import { counterActions } from '..';
 import { getCounterValue } from '../model/selectors';
+import { CounterActions } from '../model/slice/CounterSlice';
 
 const Counter = () => {
     const dispatch = useDispatch();
     const counterValue = useSelector(getCounterValue);
 
     const inc = () => {
-        dispatch(counterActions.inc());
+        dispatch(CounterActions.inc());
     };
     const dec = () => {
-        dispatch(counterActions.dec());
+        dispatch(CounterActions.dec());
     };
 
     return (

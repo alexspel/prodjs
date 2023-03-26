@@ -1,7 +1,7 @@
 import React, {
-    FC, useCallback, useEffect, useState,
+    FC, useCallback, useEffect, useRef, useState,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, TMods } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal';
 import cls from './Modal.module.scss';
 
@@ -16,19 +16,31 @@ export interface ModalProps {
 const Modal: FC<ModalProps> = (props) => {
     const {
         parent = document.querySelector('.app'),
-        className,
         children,
         onClose,
         isOpen,
         lazy = false,
+        className,
     } = props;
 
     const [isMounted, setIsMounted] = useState(false);
+    const [isOpening, setIsOpening] = useState(false);
+    const [isClosing, setIsClosing] = useState(false);
+    const [isOpened, setIsOpened] = useState(false);
+    const [modalMods, setModalMods] = useState<TMods>({});
+    const closingTimerRef = useRef<number>();
+    const openingTimerRef = useRef<number>();
 
     const closeHandler = useCallback(() => {
-        if (onClose) {
-            onClose();
-        }
+        setIsClosing(true);
+
+        closingTimerRef.current = window.setTimeout(() => {
+            setIsOpened(false);
+            setIsClosing(false);
+            if (onClose) {
+                onClose();
+            }
+        }, 100);
     }, [onClose]);
 
     const onContentClick = (e: React.MouseEvent) => {
@@ -53,23 +65,34 @@ const Modal: FC<ModalProps> = (props) => {
     useEffect(() => {
         if (isOpen) {
             setIsMounted(true);
+            setIsOpening(true);
+            openingTimerRef.current = window.setTimeout(() => {
+                setIsOpening(false);
+                setIsOpened(true);
+            }, 100);
         }
+        return () => {
+            clearTimeout(openingTimerRef.current);
+            clearTimeout(closingTimerRef.current);
+        };
     }, [isOpen]);
 
-    const classes = classNames(cls.Modal, {
-        [cls.opened]: isOpen,
-    }, [className]);
+    useEffect(() => {
+        setModalMods({
+            [cls.opening]: isOpening,
+            [cls.closing]: isClosing,
+            [cls.opened]: isOpened,
+        });
+    }, [isOpening, isOpened, isClosing]);
 
     if (lazy && !isMounted) return null;
 
     return (
         <Portal element={parent}>
-            <div className={classes}>
+            <div className={classNames(cls.Modal, modalMods, [className])}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div
-                        className={classNames(cls.content, {
-                            [cls.opened]: isOpen,
-                        })}
+                        className={cls.content}
                         onClick={onContentClick}
                     >
                         {children}
