@@ -44,6 +44,7 @@ const Button: FC<ButtonProps> = (props) => {
 
     return (
         <button
+            data-testid="button"
             type="button"
             className={classes}
             {...otherProps}

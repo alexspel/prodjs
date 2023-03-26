@@ -1,5 +1,5 @@
 import React, {
-    FC, InputHTMLAttributes, useEffect, useRef, useState
+    FC, InputHTMLAttributes, useEffect, useRef, useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
@@ -51,8 +51,9 @@ const Input: FC<InputProps> = (props) => {
         <div
             className={cls.InputWrapper}
         >
-            {label && <label>{label}</label>}
+            {label && <span>{label}</span>}
             <input
+                data-testid="input"
                 className={classNames(
                     cls.Input,
                     { [cls.focused]: isFocused },
