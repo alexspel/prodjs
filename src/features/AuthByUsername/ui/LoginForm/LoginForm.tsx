@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
+import Text, { TextTheme } from 'shared/ui/Text/ui/Text';
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
 import { LoginByUsername } from '../../model/services/LoginByUsername/LoginByUsername';
 import { LoginActions } from '../../model/slice/LoginSlice';
@@ -38,7 +39,8 @@ const LoginForm = memo((props: LoginFormProps) => {
 
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
-            {error && <div>{error}</div>}
+            <Text title={t('Auth form')} />
+            {error && <Text theme={TextTheme.ERROR} text={t(error)} />}
             <Input
                 autofocus
                 type="text"
