@@ -13,17 +13,17 @@ interface NavbarProps {
 
 export const Navbar = ({ className }: NavbarProps) => {
     const { t } = useTranslation();
-    const [isOpen, setIsOpen] = useState(!!false);
+    const [isAuthOpen, setIsAuthOpen] = useState(false);
     const authData = useSelector(getUserAuthData);
     const dispatch = useDispatch();
 
     const openModal = useCallback(() => {
-        setIsOpen(true);
-    }, [setIsOpen]);
+        setIsAuthOpen(true);
+    }, []);
 
     const onCloseModal = useCallback(() => {
-        setIsOpen(false);
-    }, [setIsOpen]);
+        setIsAuthOpen(false);
+    }, []);
 
     const onLogout = useCallback(() => {
         dispatch(UserActions.logout());
@@ -44,8 +44,13 @@ export const Navbar = ({ className }: NavbarProps) => {
             <div className={cls.links}>
                 <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={openModal}>{t('Login')}</Button>
             </div>
-
-            <LoginModal onClose={onCloseModal} isOpen={isOpen} lazy />
+            {isAuthOpen && (
+                <LoginModal
+                    onClose={onCloseModal}
+                    isOpen={isAuthOpen}
+                    lazy
+                />
+            )}
         </div>
     );
 };

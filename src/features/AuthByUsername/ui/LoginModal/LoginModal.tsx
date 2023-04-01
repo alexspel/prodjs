@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import { FC, Suspense } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Loader } from 'shared/ui/Loader';
 import { Modal } from 'shared/ui/Modal';
 import { ModalProps } from 'shared/ui/Modal/ui/Modal';
-import LoginForm from '../LoginForm/LoginForm';
+import { LoginFormAsync } from '../LoginForm/LoginForm.async';
 import cls from './LoginModal.module.scss';
 
 interface LoginModalProps extends ModalProps {
@@ -24,7 +25,9 @@ const LoginModal: FC<LoginModalProps> = (props) => {
             onClose={onClose}
             {...otherProps}
         >
-            <LoginForm />
+            <Suspense fallback={<Loader />}>
+                <LoginFormAsync />
+            </Suspense>
         </Modal>
     );
 };
