@@ -1,8 +1,8 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { getLoginPassword } from './getLoginPassword';
 
 const someValue = Date.now().toString();
+
 describe('getLoginPassword', () => {
     test(`Getter returns correct value: ${someValue}`, () => {
         const state: DeepPartial<StateSchema> = {

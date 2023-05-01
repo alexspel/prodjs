@@ -1,10 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from 'shared/lib/hooks';
 import { Button } from 'shared/ui/Button';
 import { getCounterValue } from '../model/selectors';
 import { CounterActions } from '../model/slice/CounterSlice';
 
 const Counter = () => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const counterValue = useSelector(getCounterValue);
 
     const inc = () => {

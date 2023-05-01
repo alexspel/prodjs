@@ -1,9 +1,9 @@
-export type TMods = Record<string, boolean | string>;
+export type TMods = Record<string, boolean | string | undefined>;
 
 export function classNames(
     cls: string,
     mods: TMods = {},
-    additional: string[] = [],
+    additional: Array<string | undefined> = [],
 ): string {
     return [
         cls,

@@ -5,7 +5,9 @@ import {
     getLoginState,
     getLoginUsername,
 } from './model/selectors';
-// import { LoginActions, LoginReducer } from './model/slice/LoginSlice';
+
+import { loginActions, loginReducer } from './model/slice/LoginSlice';
+
 import { LoginSchema } from './model/types/LoginSchema';
 import LoginModal from './ui/LoginModal/LoginModal';
 
@@ -17,4 +19,6 @@ export {
     getLoginUsername,
     getLoginError,
     getLoginIsLoading,
+    loginActions,
+    loginReducer,
 };

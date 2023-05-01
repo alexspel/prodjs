@@ -4,9 +4,11 @@ import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 
 export default function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstance[] {
+    const { apiUrl, isDev, paths } = options;
+
     const plugins = [
         new HtmlWebpackPlugin({
-            template: options.paths.html,
+            template: paths.html,
         }),
         new webpack.ProgressPlugin(),
         new MiniCssExtractPlugin({
@@ -14,12 +16,13 @@ export default function buildPlugins(options: BuildOptions): webpack.WebpackPlug
             chunkFilename: 'css/[name].[contenthash:8].css',
         }),
         new webpack.DefinePlugin({
-            __IS_DEV__: JSON.stringify(options.isDev),
+            __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiUrl),
         }),
 
     ];
 
-    if (options.isDev) {
+    if (isDev) {
         plugins.push(
             new webpack.HotModuleReplacementPlugin(),
         );

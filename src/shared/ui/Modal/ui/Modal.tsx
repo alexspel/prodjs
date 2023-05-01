@@ -1,7 +1,7 @@
 import React, {
-    FC, useCallback, useEffect, useRef, useState,
+    FC, MutableRefObject, useCallback, useEffect, useRef, useState,
 } from 'react';
-import { classNames, TMods } from 'shared/lib/classNames/classNames';
+import { TMods, classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal';
 import cls from './Modal.module.scss';
 
@@ -28,8 +28,8 @@ const Modal: FC<ModalProps> = (props) => {
     const [isClosing, setIsClosing] = useState(false);
     const [isOpened, setIsOpened] = useState(false);
     const [modalMods, setModalMods] = useState<TMods>({});
-    const closingTimerRef = useRef<number>();
-    const openingTimerRef = useRef<number>();
+    const closingTimerRef = useRef() as MutableRefObject<number>;
+    const openingTimerRef = useRef() as MutableRefObject<number>;
 
     const closeHandler = useCallback(() => {
         setIsClosing(true);
@@ -88,7 +88,7 @@ const Modal: FC<ModalProps> = (props) => {
     if (lazy && !isMounted) return null;
 
     return (
-        <Portal element={parent}>
+        <Portal>
             <div className={classNames(cls.Modal, modalMods, [className])}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div

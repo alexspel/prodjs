@@ -1,8 +1,8 @@
 import { useTheme } from 'app/providers/ThemeProvider';
-import { UserActions } from 'entities/User';
+import { userActions } from 'entities/User';
 import { Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from 'shared/lib/hooks';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { AppRouter } from './providers/AppRouter';
@@ -11,10 +11,10 @@ import './styles/index.scss';
 
 const App = () => {
     const { theme } = useTheme();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(UserActions.initAuthData());
+        dispatch(userActions.initAuthData());
     }, [dispatch]);
 
     return (

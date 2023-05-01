@@ -1,8 +1,7 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { LangSwitcher } from './LangSwitcher';
-import { ThemeDecorator } from '../../../shared/config/storybook/ThemeDecorator';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from '../../../app/providers/ThemeProvider';
+import { ThemeDecorator } from '../../../shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { LangSwitcher } from './LangSwitcher';
 
 export default {
     title: 'widgets/LangSwitcher',
@@ -16,14 +15,8 @@ export default {
 const Template: ComponentStory<typeof LangSwitcher> = (args) => <LangSwitcher {...args} />;
 
 export const Light = Template.bind({});
-
-Light.args = {
-    children: 'Text',
-};
+Light.args = {};
 
 export const Dark = Template.bind({});
-
-Dark.args = {
-    children: 'Text',
-};
+Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];

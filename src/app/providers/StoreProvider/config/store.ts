@@ -1,25 +1,39 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { CounterReducer } from 'entities/Counter';
-import { UserReducer } from 'entities/User';
+import { userReducer } from 'entities/User';
+import { NavigateOptions, To } from 'react-router-dom';
+import { CombinedState, Reducer } from 'redux';
+import { $api } from 'shared/api';
 import { createReducerManager } from './reducerManager';
-import { StateSchema } from './schema';
+import { StateSchema, ThunkExtraArg } from './schema';
 
 export function createAppStore(
-    initialState: StateSchema,
+    initialState?: StateSchema,
     asyncReducers?: ReducersMapObject<StateSchema>,
+    navigate?: (to: To, options?: NavigateOptions) => void,
 ) {
-    const rootReducer: ReducersMapObject<StateSchema> = {
+    const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         counter: CounterReducer,
-        user: UserReducer,
+        user: userReducer,
         // loginForm: LoginReducer,
     };
-    const reducerManager = createReducerManager(rootReducer);
+    const reducerManager = createReducerManager(rootReducers);
 
-    const store = configureStore<StateSchema>({
-        reducer: reducerManager.reduce,
+    const extraArg: ThunkExtraArg = {
+        api: $api,
+        navigate,
+    };
+
+    const store = configureStore({
+        reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+            thunk: {
+                extraArgument: extraArg,
+            },
+        }),
     });
 
     // @ts-ignore
@@ -27,3 +41,5 @@ export function createAppStore(
 
     return store;
 }
+
+export type AppDispatch = ReturnType<typeof createAppStore>['dispatch'];
