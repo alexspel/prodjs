@@ -3,14 +3,19 @@
     border: 2px solid var(--inverted-bg-color);
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-}
-
-.data {
-    margin-top: 20px;
-}
 .input {
     margin-bottom: 10px;
+}
+
+.loading, .error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+.avatarWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }

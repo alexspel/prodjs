@@ -4,14 +4,15 @@ import React, {
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>;
 
 interface InputProps extends HTMLInputProps {
     className?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
     autofocus?: boolean;
     label?: string;
+    readOnly?:boolean;
 }
 
 const Input = memo((props: InputProps) => {
@@ -22,6 +23,7 @@ const Input = memo((props: InputProps) => {
         type = 'text',
         autofocus = false,
         label,
+        readOnly = false,
         ...otherProps
     } = props;
 
@@ -56,7 +58,10 @@ const Input = memo((props: InputProps) => {
                 data-testid="input"
                 className={classNames(
                     cls.Input,
-                    { [cls.focused]: isFocused },
+                    {
+                        [cls.focused]: isFocused,
+                        [cls.readonly]: readOnly,
+                    },
                     [className],
                 )}
                 ref={ref}
@@ -65,6 +70,7 @@ const Input = memo((props: InputProps) => {
                 onChange={onChangeHandler}
                 onFocus={onFocus}
                 onBlur={onBlur}
+                readOnly={readOnly}
                 {...otherProps}
             />
         </div>

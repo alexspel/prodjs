@@ -14,9 +14,17 @@ interface SidebarProps {
 
 const Sidebar = memo(({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
+    // const authData = useSelector(getUserAuthData);
     const onToggle = () => {
         setCollapsed((prev) => !prev);
     };
+
+    // const sidebarLinks = useMemo(() => SidebarItemsList.filter((x) => {
+    //     if (x.authOnly && !authData) {
+    //         return false;
+    //     }
+    //     return true;
+    // }), [authData]);
 
     return (
         <div
