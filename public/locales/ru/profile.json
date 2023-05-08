@@ -1,4 +1,9 @@
 {
     "Profile page": "Страница профиля",
-    "Profile": "Профиль"
+    "Profile": "Профиль",
+    "SERVER ERROR": "Ошибка сервера",
+    "INCORRECT_COUNTRY": "Неверная страна",
+    "NO DATA": "Нет данных",
+    "INCORRECT USER DATA": "Отсутствует имя или фамилия",
+    "INCORRECT AGE": "Неверный возраст"
 }

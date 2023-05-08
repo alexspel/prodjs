@@ -19,13 +19,6 @@ const Sidebar = memo(({ className }: SidebarProps) => {
         setCollapsed((prev) => !prev);
     };
 
-    // const sidebarLinks = useMemo(() => SidebarItemsList.filter((x) => {
-    //     if (x.authOnly && !authData) {
-    //         return false;
-    //     }
-    //     return true;
-    // }), [authData]);
-
     return (
         <div
             data-testid="sidebar"

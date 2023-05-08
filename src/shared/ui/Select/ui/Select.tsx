@@ -52,7 +52,7 @@ const Select = memo((props: SelectProps) => {
                 disabled={readonly}
                 className={cls.Select}
                 onChange={onChangeHandler}
-                value={value}
+                defaultValue={value}
             >
                 {placeholder && <option className={cls.option} selected disabled>{placeholder}</option>}
                 {optionsList}

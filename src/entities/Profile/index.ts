@@ -4,6 +4,7 @@ import {
     getProfileForm,
     getProfileIsLoading,
     getProfileRaadonly,
+    getProfileValidationErrors,
 } from './model/selectors';
 import { fetchProfileData, updateProfileData } from './model/services';
 import { profileActions, profileReducer } from './model/slice/profileSlice';
@@ -22,5 +23,6 @@ export {
     getProfileData,
     getProfileForm,
     getProfileRaadonly,
+    getProfileValidationErrors,
     ProfileCard,
 };

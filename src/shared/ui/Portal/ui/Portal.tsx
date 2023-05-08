@@ -8,7 +8,7 @@ interface PortalProps {
 
 const Portal = (props: PortalProps) => {
     const {
-        element = document.body,
+        element = document.querySelector('#root > .app') as Element,
         children,
     } = props;
     return createPortal(children, element);

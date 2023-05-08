@@ -13,6 +13,7 @@ const BuildWebpackConfig = (options: BuildOptions): webpack.Configuration => ({
         filename: 'bundle.[contenthash].js',
         path: options.paths.build,
         clean: true,
+        publicPath: '/',
     },
     plugins: buildPlugins(options),
     module: {

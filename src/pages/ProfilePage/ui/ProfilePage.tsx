@@ -7,14 +7,17 @@ import {
     getProfileForm,
     getProfileIsLoading,
     getProfileRaadonly,
+    getProfileValidationErrors,
     profileActions,
     profileReducer,
 } from 'entities/Profile';
+import { ValidationProfileError } from 'entities/Profile/model/types/profile';
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components';
 import { useAppDispatch } from 'shared/lib/hooks';
+import { Text, TextTheme } from 'shared/ui/Text';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -32,6 +35,15 @@ const ProfilePage = () => {
     const error = useSelector(getProfileError);
     const isLoading = useSelector(getProfileIsLoading);
     const readonly = useSelector(getProfileRaadonly);
+    const validationErrors = useSelector(getProfileValidationErrors);
+
+    const validationErrorsTranslates = {
+        [ValidationProfileError.SERVER_ERROR]: t('SERVER ERROR'),
+        [ValidationProfileError.INCORRECT_COUNTRY]: t('INCORRECT COUNTRY'),
+        [ValidationProfileError.NO_DATA]: t('NO DATA'),
+        [ValidationProfileError.INCORRECT_USER_DATA]: t('INCORRECT USER DATA'),
+        [ValidationProfileError.INCORRECT_AGE]: t('INCORRECT AGE'),
+    };
 
     const onChangeFirstName = useCallback(
         (first: string) => {
@@ -99,6 +111,15 @@ const ProfilePage = () => {
             autoRemoveReducer
         >
             <ProfilePageHeader />
+            <div>
+                {validationErrors?.length && validationErrors.map((err) => (
+                    <Text
+                        theme={TextTheme.ERROR}
+                        key={err}
+                        text={validationErrorsTranslates[err]}
+                    />
+                ))}
+            </div>
             <ProfileCard
                 data={formData}
                 error={error}

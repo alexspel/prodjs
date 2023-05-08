@@ -1,4 +1,9 @@
 {
     "Profile page": "The Profile page",
-    "Profile": "Profile"
+    "Profile": "Profile",
+    "SERVER ERROR": "SERVER ERROR",
+    "INCORRECT COUNTRY": "INCORRECT COUNTRY",
+    "NO DATA": "NO DATA",
+    "INCORRECT USER DATA": "INCORRECT USER DATA",
+    "INCORRECT AGE": "INCORRECT AGE"
 }
