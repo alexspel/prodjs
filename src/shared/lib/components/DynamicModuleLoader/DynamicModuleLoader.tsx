@@ -8,6 +8,7 @@ import { useAppDispatch } from 'shared/lib/hooks';
 export type ReducersList = {
     [name in StateSchemaKey]?: Reducer;
 }
+
 type ReducersListEntry = [StateSchemaKey, Reducer];
 
 interface DynamicModuleLoaderProps {
