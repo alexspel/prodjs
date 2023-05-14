@@ -1,3 +1,12 @@
-import Text, { TextTheme } from './ui/Text';
+import Text, {
+    TextAlign,
+    TextSize,
+    TextTheme,
+} from './ui/Text';
 
-export { Text, TextTheme };
+export {
+    Text,
+    TextAlign,
+    TextSize,
+    TextTheme,
+};

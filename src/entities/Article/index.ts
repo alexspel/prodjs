@@ -21,4 +21,3 @@ export {
     articleDetailsActions,
     articleDetailsReducer,
 };
-

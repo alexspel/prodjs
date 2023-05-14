@@ -9,4 +9,3 @@ export {
     getArticleDetailsIsLoading,
     getArticleDetailsError,
 };
-
