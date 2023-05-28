@@ -2,7 +2,7 @@ import {
     getArticleDetails,
     getArticleDetailsData,
     getArticleDetailsError,
-    getArticleDetailsIsLoading,
+    getArticleDetailsLoading,
 } from './model/selectors';
 
 import { articleDetailsActions, articleDetailsReducer } from './model/slice/articleDetailsSlice';
@@ -16,7 +16,7 @@ export {
     ArticleDetailsSchema,
     getArticleDetails,
     getArticleDetailsData,
-    getArticleDetailsIsLoading,
+    getArticleDetailsLoading,
     getArticleDetailsError,
     articleDetailsActions,
     articleDetailsReducer,

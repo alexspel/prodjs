@@ -5,7 +5,7 @@ import {
     fetchProfileData,
     getProfileError,
     getProfileForm,
-    getProfileIsLoading,
+    getProfileLoading,
     getProfileRaadonly,
     getProfileValidationErrors,
     profileActions,
@@ -33,7 +33,7 @@ const ProfilePage = () => {
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileForm);
     const error = useSelector(getProfileError);
-    const isLoading = useSelector(getProfileIsLoading);
+    const loading = useSelector(getProfileLoading);
     const readonly = useSelector(getProfileRaadonly);
     const validationErrors = useSelector(getProfileValidationErrors);
 
@@ -123,7 +123,7 @@ const ProfilePage = () => {
             <ProfileCard
                 data={formData}
                 error={error}
-                isLoading={isLoading}
+                loading={loading}
                 readonly={readonly}
                 onChangeFirstName={onChangeFirstName}
                 onChangeLastName={onChangeLastName}

@@ -1,6 +1,6 @@
 import {
     getLoginError,
-    getLoginIsLoading,
+    getLoginLoading,
     getLoginPassword,
     getLoginState,
     getLoginUsername,
@@ -18,7 +18,7 @@ export {
     getLoginState,
     getLoginUsername,
     getLoginError,
-    getLoginIsLoading,
+    getLoginLoading,
     loginActions,
     loginReducer,
 };

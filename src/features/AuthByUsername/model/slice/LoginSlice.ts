@@ -5,7 +5,7 @@ import { LoginSchema } from '../types/LoginSchema';
 const initialState: LoginSchema = {
     username: '',
     password: '',
-    isLoading: false,
+    loading: false,
 };
 
 export const LoginSlice = createSlice({
@@ -18,8 +18,8 @@ export const LoginSlice = createSlice({
         setPassword: (state, action: PayloadAction<string>) => {
             state.password = action.payload;
         },
-        setIsLoading: (state, action: PayloadAction<boolean>) => {
-            state.isLoading = action.payload;
+        setLoading: (state, action: PayloadAction<boolean>) => {
+            state.loading = action.payload;
         },
         setError: (state, action: PayloadAction<string>) => {
             state.error = action.payload;
@@ -29,13 +29,13 @@ export const LoginSlice = createSlice({
         builder
             .addCase(loginByUsername.pending, (state, action) => {
                 state.error = undefined;
-                state.isLoading = true;
+                state.loading = true;
             })
             .addCase(loginByUsername.fulfilled, (state, action) => {
-                state.isLoading = false;
+                state.loading = false;
             })
             .addCase(loginByUsername.rejected, (state, action) => {
-                state.isLoading = false;
+                state.loading = false;
                 state.error = action.payload;
             });
     },

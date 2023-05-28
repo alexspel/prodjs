@@ -3,7 +3,7 @@ import { fetchProfileData, updateProfileData } from '../services';
 import { Profile, ProfileSchema } from '../types/profile';
 
 const initialState: ProfileSchema = {
-    isLoading: false,
+    loading: false,
     readonly: true,
     error: undefined,
     data: undefined,
@@ -32,36 +32,36 @@ export const ProfileSlice = createSlice({
         builder
             .addCase(fetchProfileData.pending, (state) => {
                 state.error = undefined;
-                state.isLoading = true;
+                state.loading = true;
             })
             .addCase(fetchProfileData.fulfilled, (
                 state,
                 action: PayloadAction<Profile>,
             ) => {
-                state.isLoading = false;
+                state.loading = false;
                 state.data = action.payload;
                 state.form = action.payload;
             })
             .addCase(fetchProfileData.rejected, (state, action) => {
-                state.isLoading = false;
+                state.loading = false;
                 state.error = action.payload;
             })
             .addCase(updateProfileData.pending, (state) => {
                 state.validationErrors = undefined;
-                state.isLoading = true;
+                state.loading = true;
             })
             .addCase(updateProfileData.fulfilled, (
                 state,
                 action: PayloadAction<Profile>,
             ) => {
-                state.isLoading = false;
+                state.loading = false;
                 state.data = action.payload;
                 state.form = action.payload;
                 state.readonly = true;
                 state.validationErrors = undefined;
             })
             .addCase(updateProfileData.rejected, (state, action) => {
-                state.isLoading = false;
+                state.loading = false;
                 state.validationErrors = action.payload;
             });
     },

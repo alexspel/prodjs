@@ -5,10 +5,12 @@
   "lang code": "Рус",
   "About page": "О сайте",
   "Main page": "Главная страница",
+  "Profile page": "Профиль",
+  "Articles": "Статьи",
   "Page not found": "Страница не найдена",
   "Throw error": "Ошибка",
   "Throw error short": "Баг",
   "Reload": "Перезагрузить",
   "Login": "Войти",
-  "Profile page": "Профиль"
+  "Profile": "Профиль"
 }

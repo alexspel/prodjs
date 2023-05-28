@@ -8,7 +8,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
 import { Text, TextTheme } from 'shared/ui/Text';
 import {
-    getLoginError, getLoginIsLoading, getLoginPassword, getLoginUsername,
+    getLoginError, getLoginLoading, getLoginPassword, getLoginUsername,
 } from '../..';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/LoginSlice';
@@ -32,7 +32,7 @@ const LoginForm = memo((props: LoginFormProps) => {
 
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
-    const isLoading = useSelector(getLoginIsLoading);
+    const loading = useSelector(getLoginLoading);
     const error = useSelector(getLoginError);
 
     const onChangeUsername = useCallback((value: string) => {
@@ -74,7 +74,7 @@ const LoginForm = memo((props: LoginFormProps) => {
                     theme={ButtonTheme.OUTLINE}
                     className={cls.loginButton}
                     onClick={onLoginClick}
-                    disabled={isLoading}
+                    disabled={loading}
                 >
                     {t('Login')}
                 </Button>

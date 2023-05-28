@@ -18,7 +18,7 @@ const CommentList = memo((props: CommentListProps) => {
         loading = false,
         comments = [],
     } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('comments');
 
     return (
         <div className={classNames(cls.CommentList, {}, [className])}>
@@ -32,7 +32,7 @@ const CommentList = memo((props: CommentListProps) => {
                             loading={loading}
                         />
                     ))
-                    : <Text text={t('Комментарии отсутствуют')} />
+                    : <Text text={t('No comments')} />
             }
         </div>
     );

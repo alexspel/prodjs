@@ -2,7 +2,7 @@ import {
     getProfileData,
     getProfileError,
     getProfileForm,
-    getProfileIsLoading,
+    getProfileLoading,
     getProfileRaadonly,
     getProfileValidationErrors,
 } from './model/selectors';
@@ -18,7 +18,7 @@ export {
     ProfileSchema,
     fetchProfileData,
     updateProfileData,
-    getProfileIsLoading,
+    getProfileLoading,
     getProfileError,
     getProfileData,
     getProfileForm,

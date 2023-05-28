@@ -13,7 +13,7 @@ import { Text, TextSize, TextTheme } from 'shared/ui/Text';
 import {
     getArticleDetailsData,
     getArticleDetailsError,
-    getArticleDetailsIsLoading,
+    getArticleDetailsLoading,
 } from '../../model/selectors';
 import { fetchArticleById } from '../../model/services';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
@@ -46,7 +46,7 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const dispatch = useAppDispatch();
     const article = useSelector(getArticleDetailsData);
     const error = useSelector(getArticleDetailsError);
-    const isLoading = useSelector(getArticleDetailsIsLoading);
+    const loading = useSelector(getArticleDetailsLoading);
 
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
@@ -82,7 +82,7 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
         dispatch(fetchArticleById(articleId));
     }, [dispatch, articleId]);
 
-    if (isLoading) {
+    if (loading) {
         content = (
             <div>
                 <Skeleton

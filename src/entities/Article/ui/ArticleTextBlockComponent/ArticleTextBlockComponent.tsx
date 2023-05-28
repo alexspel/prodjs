@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text';
 import { ArticleTextBlock } from '../../model/types/article';
@@ -15,7 +14,6 @@ const ArticleTextBlockComponent = memo((props: ArticleTextBlockComponentProps) =
         className,
         block,
     } = props;
-    const { t } = useTranslation();
 
     return (
         <div className={classNames(cls.ArticleTextBlockComponent, {}, [className])}>
