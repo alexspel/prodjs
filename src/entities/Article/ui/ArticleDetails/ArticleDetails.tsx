@@ -114,7 +114,13 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
             </div>
         );
     } else if (error) {
-        content = <Text theme={TextTheme.ERROR} title={t('Error')} text={t('Article not found')} />;
+        content = (
+            <Text
+                theme={TextTheme.ERROR}
+                title={t('Error')}
+                text={t('Article not found')}
+            />
+        );
     } else {
         content = (
             <>
