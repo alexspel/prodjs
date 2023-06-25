@@ -15,7 +15,7 @@
 
 .focused {
     transition: 0.3s color;
-    background: #fff;
+    background: var(--inverted-bg-color);
 }
 
 .readonly {

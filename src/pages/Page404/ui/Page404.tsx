@@ -1,11 +1,12 @@
 import { useTranslation } from 'react-i18next';
+import Page from 'widgets/Page/Page';
 
 const Page404 = () => {
     const { t } = useTranslation();
     return (
-        <div>
+        <Page>
             <h1>{t('Page not found')}</h1>
-        </div>
+        </Page>
     );
 };
 

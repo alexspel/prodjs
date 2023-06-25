@@ -15,9 +15,11 @@ import { ValidationProfileError } from 'entities/Profile/model/types/profile';
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components';
 import { useAppDispatch } from 'shared/lib/hooks';
 import { Text, TextTheme } from 'shared/ui/Text';
+import Page from 'widgets/Page/Page';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -31,6 +33,7 @@ const reducers: ReducersList = {
 const ProfilePage = () => {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
+    const { id } = useParams<{ id: string }>();
     const formData = useSelector(getProfileForm);
     const error = useSelector(getProfileError);
     const loading = useSelector(getProfileLoading);
@@ -102,38 +105,42 @@ const ProfilePage = () => {
     );
 
     useEffect(() => {
-        dispatch(fetchProfileData());
-    }, [dispatch]);
+        if (id) {
+            dispatch(fetchProfileData(id));
+        }
+    }, [dispatch, id]);
 
     return (
         <DynamicModuleLoader
             reducers={reducers}
             autoRemoveReducer
         >
-            <ProfilePageHeader />
-            <div>
-                {validationErrors?.length && validationErrors.map((err) => (
-                    <Text
-                        theme={TextTheme.ERROR}
-                        key={err}
-                        text={validationErrorsTranslates[err]}
-                    />
-                ))}
-            </div>
-            <ProfileCard
-                data={formData}
-                error={error}
-                loading={loading}
-                readonly={readonly}
-                onChangeFirstName={onChangeFirstName}
-                onChangeLastName={onChangeLastName}
-                onChangeAge={onChangeAge}
-                onChangeCity={onChangeCity}
-                onChangeUsername={onChangeUsername}
-                onChangeAvatar={onChangeAvatar}
-                onChangeCurrency={onChangeCurrency}
-                onChangeCountry={onChangeCountry}
-            />
+            <Page>
+                <ProfilePageHeader />
+                <div>
+                    {validationErrors?.length && validationErrors.map((err) => (
+                        <Text
+                            theme={TextTheme.ERROR}
+                            key={err}
+                            text={validationErrorsTranslates[err]}
+                        />
+                    ))}
+                </div>
+                <ProfileCard
+                    data={formData}
+                    error={error}
+                    loading={loading}
+                    readonly={readonly}
+                    onChangeFirstName={onChangeFirstName}
+                    onChangeLastName={onChangeLastName}
+                    onChangeAge={onChangeAge}
+                    onChangeCity={onChangeCity}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
+                />
+            </Page>
         </DynamicModuleLoader>
     );
 };

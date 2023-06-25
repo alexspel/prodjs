@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text';
 import { Comment } from '../../model/types/comment';
 import CommentCard from '../CommentCard/CommentCard';
-import cls from './CommentList.module.scss'; // 'entities/Comment/model/types/comment';
+import cls from './CommentList.module.scss';
 
 interface CommentListProps {
     className?: string;

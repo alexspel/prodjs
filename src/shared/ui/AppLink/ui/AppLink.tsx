@@ -12,6 +12,7 @@ export interface AppLinkProps extends LinkProps {
     className?: string;
     theme?: AppLinkTheme,
     children?: ReactNode;
+    underline?: boolean;
 }
 
 const AppLink = (props: AppLinkProps) => {
@@ -19,6 +20,7 @@ const AppLink = (props: AppLinkProps) => {
         children,
         to,
         className,
+        underline = true,
         theme = AppLinkTheme.PRIMARY,
         ...otherProps
     } = props;
@@ -26,6 +28,7 @@ const AppLink = (props: AppLinkProps) => {
         <Link
             to={to}
             className={classNames(cls.AppLink, {}, [className, cls[theme]])}
+            style={{ textDecoration: underline ? 'underline' : 'none' }}
             {...otherProps}
         >
             {children}

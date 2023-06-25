@@ -20,11 +20,11 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     const openModal = useCallback(() => {
         setIsAuthOpen(true);
-    }, []);
+    }, [setIsAuthOpen]);
 
     const onCloseModal = useCallback(() => {
         setIsAuthOpen(false);
-    }, []);
+    }, [setIsAuthOpen]);
 
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
@@ -41,7 +41,7 @@ export const Navbar = ({ className }: NavbarProps) => {
     }
 
     return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
+        <menu className={classNames(cls.Navbar, {}, [className])}>
             <div className={cls.links}>
                 <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={openModal}>{t('Login')}</Button>
             </div>
@@ -52,6 +52,6 @@ export const Navbar = ({ className }: NavbarProps) => {
                     lazy
                 />
             )}
-        </div>
+        </menu>
     );
 };
