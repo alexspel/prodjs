@@ -34,11 +34,7 @@ const Sidebar = memo(({ className }: SidebarProps) => {
             }
         >
             <div className={cls.items}>
-                {
-                    sidebarItems.map(
-                        (item) => <SidebarItem key={item.path} collapsed={collapsed} item={item} />,
-                    )
-                }
+                {sidebarItems.map((item) => <SidebarItem key={item.path} collapsed={collapsed} item={item} />)}
             </div>
             <div className={cls.switchers}>
                 <ThemeSwitcher />

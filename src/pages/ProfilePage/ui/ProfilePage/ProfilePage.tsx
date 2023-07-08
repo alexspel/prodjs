@@ -19,16 +19,13 @@ import { useParams } from 'react-router-dom';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components';
 import { useAppDispatch } from 'shared/lib/hooks';
 import { Text, TextTheme } from 'shared/ui/Text';
-import Page from 'widgets/Page/Page';
-import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
+import { Page } from 'widgets/Page';
+import ProfilePageHeader from '../ProfilePageHeader/ProfilePageHeader';
+import cls from './ProfilePage.module.scss';
 
 const reducers: ReducersList = {
     profile: profileReducer,
 };
-
-// interface ProfilePageProps {
-//     className?: string;
-// }
 
 const ProfilePage = () => {
     const { t } = useTranslation('profile');
@@ -117,16 +114,15 @@ const ProfilePage = () => {
         >
             <Page>
                 <ProfilePageHeader />
-                <div>
-                    {validationErrors?.length && validationErrors.map((err) => (
-                        <Text
-                            theme={TextTheme.ERROR}
-                            key={err}
-                            text={validationErrorsTranslates[err]}
-                        />
-                    ))}
-                </div>
+                {validationErrors?.length && validationErrors.map((err) => (
+                    <Text
+                        theme={TextTheme.ERROR}
+                        key={err}
+                        text={validationErrorsTranslates[err]}
+                    />
+                ))}
                 <ProfileCard
+                    className={cls.profileCard}
                     data={formData}
                     error={error}
                     loading={loading}

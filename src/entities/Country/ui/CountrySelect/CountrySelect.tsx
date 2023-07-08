@@ -1,7 +1,6 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'shared/ui/Select';
-import { SelectOption } from 'shared/ui/Select/ui/Select';
+import { Select, SelectOption } from 'shared/ui/Select';
 import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {
@@ -11,7 +10,7 @@ interface CountrySelectProps {
     readonly?: boolean;
 }
 
-const countryOptions: SelectOption[] = [
+const countryOptions: SelectOption<Country>[] = [
     { value: Country.RUSSIA, label: Country.RUSSIA },
     { value: Country.BELARUS, label: Country.BELARUS },
     { value: Country.UKRAINE, label: Country.UKRAINE },
@@ -29,15 +28,11 @@ const CountrySelect = memo((props: CountrySelectProps) => {
 
     const { t } = useTranslation();
 
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as Country);
-    }, [onChange]);
-
     return (
         <Select
             className={className}
             placeholder={t('Your country')}
-            onChange={onChangeHandler}
+            onChange={onChange}
             value={value}
             options={countryOptions}
             readonly={readonly}

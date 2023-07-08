@@ -17,18 +17,8 @@ const ArticleTextBlockComponent = memo((props: ArticleTextBlockComponentProps) =
 
     return (
         <div className={classNames(cls.ArticleTextBlockComponent, {}, [className])}>
-            {block.title && (
-                <Text
-                    className={cls.title}
-                    title={block.title}
-                />
-            )}
-            {block.paragraphs.map((p) => (
-                <Text
-                    key={p}
-                    text={p}
-                />
-            ))}
+            {block.title && (<Text className={cls.title} title={block.title} />)}
+            {block.paragraphs.map((p) => (<Text key={p} text={p} />))}
         </div>
     );
 });

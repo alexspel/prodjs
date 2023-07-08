@@ -1,0 +1,18 @@
+.ListViewSelector {
+    display: flex;
+    gap: 10px;
+    align-items: center; 
+}
+
+.listView {
+    transform: 0.3s;
+    &:hover {
+        opacity: 0.5;
+    }
+}
+ 
+.selectedListView {  
+    & svg {
+        opacity: 0.3; 
+    }
+}

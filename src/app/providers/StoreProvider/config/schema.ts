@@ -12,11 +12,12 @@ import { LoginSchema } from 'features/AuthByUsername';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { NavigateOptions, To } from 'react-router-dom';
+import { ScrollSchema } from 'widgets/Page';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
-
+    scroll: ScrollSchema;
     // Асинхронные редюсеры
     loginForm?: LoginSchema;
     profile?: ProfileSchema;

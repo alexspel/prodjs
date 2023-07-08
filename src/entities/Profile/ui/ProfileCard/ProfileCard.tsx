@@ -86,42 +86,36 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
                 </div>
             )}
             <Input
-                className={cls.input}
                 value={data?.first}
                 placeholder={t('Your first name')}
                 onChange={onChangeFirstName}
                 readOnly={readonly}
             />
             <Input
-                className={cls.input}
                 value={data?.lastname}
                 placeholder={t('Your last name')}
                 onChange={onChangeLastName}
                 readOnly={readonly}
             />
             <Input
-                className={cls.input}
                 value={data?.age}
                 placeholder={t('Your age')}
                 onChange={onChangeAge}
                 readOnly={readonly}
             />
             <Input
-                className={cls.input}
                 value={data?.city}
                 placeholder={t('Your city')}
                 onChange={onChangeCity}
                 readOnly={readonly}
             />
             <Input
-                className={cls.input}
                 value={data?.username}
                 placeholder={t('Your username')}
                 onChange={onChangeUsername}
                 readOnly={readonly}
             />
             <Input
-                className={cls.input}
                 value={data?.avatar}
                 placeholder={t('Your avatar')}
                 onChange={onChangeAvatar}

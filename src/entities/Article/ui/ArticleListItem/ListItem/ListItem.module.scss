@@ -1,0 +1,25 @@
+.ListItem {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    gap: 10px;
+}
+
+.header,
+.postInfoWrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.postInfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+    &:hover {
+        opacity: 0.6;
+    }
+}

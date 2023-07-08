@@ -14,8 +14,8 @@ const Card = memo((props: CardProps) => {
     const {
         className,
         image,
-        title,
-        subtitle,
+        title = null,
+        subtitle = null,
     } = props;
     const { t } = useTranslation();
 
@@ -29,8 +29,8 @@ const Card = memo((props: CardProps) => {
                     }}
                 />
             )}
-            {title || null}
-            {subtitle || null}
+            {title}
+            {subtitle}
         </div>
     );
 });

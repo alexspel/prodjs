@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Article, ArticleListType } from '../../model/types/article';
 import ArticleListItem from '../ArticleListItem/ArticleListItem';
@@ -19,6 +20,8 @@ const ArticleList = memo((props: ArticleListProps) => {
         view = ArticleListType.LIST,
     } = props;
 
+    const { t } = useTranslation();
+
     if (loading) {
         return <div>Loading</div>;
     }
@@ -28,15 +31,13 @@ const ArticleList = memo((props: ArticleListProps) => {
             className={classNames(cls.ArticleList, {}, [className, cls[view]])}
         >
             {
-                articles.map(
-                    (article) => (
-                        <ArticleListItem
-                            key={article.id}
-                            view={view}
-                            article={article}
-                        />
-                    ),
-                )
+                articles.map((article) => (
+                    <ArticleListItem
+                        key={article.id}
+                        view={view}
+                        article={article}
+                    />
+                ))
             }
         </div>
     );

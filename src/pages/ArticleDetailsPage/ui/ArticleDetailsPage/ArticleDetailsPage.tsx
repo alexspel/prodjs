@@ -12,23 +12,17 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components';
 import { useAppDispatch } from 'shared/lib/hooks';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Text, TextTheme } from 'shared/ui/Text';
-import Page from 'widgets/Page/Page';
+import { Page } from 'widgets/Page';
 import { getArticleDetailsCommentsLoading } from '../../model/selectors/comments';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/ArticleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 
-interface ArticleDetailsPageProps {
-    className?: string;
-}
 const reducers: ReducersList = {
     articleDetailsComments: articleDetailsCommentsReducer,
 };
 
-const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
-    const {
-        className,
-    } = props;
+const ArticleDetailsPage = memo(() => {
     const { t } = useTranslation();
     const { id } = useParams<{ id: string }>();
     const dispatch = useAppDispatch();

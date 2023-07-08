@@ -1,20 +1,18 @@
 import { useCallback, useEffect, useState } from 'react';
 
 export interface UseLocalStorage {
-    defaultValue?: string;
     name: string;
 }
 
-export type UseLocalStorageResult = [string, (val: string) => void];
+export type UseLocalStorageResult = [string | null, (val: string | null) => void];
 
 export function useLocalStorage(props: UseLocalStorage): UseLocalStorageResult {
     const {
-        defaultValue = '',
         name,
     } = props;
-    const [value, setValue] = useState(localStorage.getItem(name) || defaultValue);
+    const [value, setValue] = useState<string | null>(localStorage.getItem(name));
 
-    const SetValue = useCallback((val: string) => {
+    const SetValue = useCallback((val: string | null) => {
         setValue(val);
         localStorage.setItem(name, val as string);
     }, [name, setValue]);
