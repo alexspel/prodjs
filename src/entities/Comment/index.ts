@@ -5,6 +5,5 @@ import CommentList from './ui/CommentList/CommentList';
 export {
     Comment,
     CommentCard,
-    CommentList
+    CommentList,
 };
-

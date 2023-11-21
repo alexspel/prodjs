@@ -30,6 +30,5 @@ export {
     getArticleDetails,
     getArticleDetailsData,
     getArticleDetailsError,
-    getArticleDetailsLoading
+    getArticleDetailsLoading,
 };
-
