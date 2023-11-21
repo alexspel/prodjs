@@ -1,14 +1,16 @@
-import {
-    getArticlesPageHasMore, getArticlesPageInited, getArticlesPageLoading, getArticlesPagePage,
-} from 'pages/ArticlesPage/model/selectors/selectors';
-import { articlesPageActions } from 'pages/ArticlesPage/model/slices/ArticlesPageSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch, useInitialEffect } from 'shared/lib/hooks';
+import { useAppDispatch } from 'shared/lib/hooks';
 import { Button } from 'shared/ui/Button';
+import {
+    getArticlesPageHasMore,
+    getArticlesPageLoading,
+    getArticlesPagePage,
+} from '../../model/selectors/selectors';
 import { fetchArticles } from '../../model/services/fetchArticles';
+import { articlesPageActions } from '../../model/slices/ArticlesPageSlice';
 
 interface ArticlesPageFetchProps {
     className?: string;
@@ -24,16 +26,11 @@ const ArticlesPageFetch = memo((props: ArticlesPageFetchProps) => {
     const loading = useSelector(getArticlesPageLoading);
     const page = useSelector(getArticlesPagePage);
     const hasMore = useSelector(getArticlesPageHasMore);
-    const inited = useSelector(getArticlesPageInited);
 
     const onFetchArticles = useCallback(() => {
         dispatch(articlesPageActions.setPage(page + 1));
         dispatch(fetchArticles({}));
     }, [dispatch, page]);
-
-    useInitialEffect(() => {
-        onFetchArticles();
-    });
 
     if (!hasMore) {
         return null;
@@ -47,7 +44,6 @@ const ArticlesPageFetch = memo((props: ArticlesPageFetchProps) => {
         >
             {t('Load more')}
         </Button>
-
     );
 });
 

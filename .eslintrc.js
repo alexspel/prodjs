@@ -20,6 +20,7 @@ module.exports = {
         'react',
         '@typescript-eslint',
         'react-hooks',
+        // 'alexspel-path-checker',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -53,6 +54,7 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
         'no-param-reassign': 'off',
         'no-undef': 'off',
+        // 'alexspel-path-checker/path-checker': 'error',
     },
     globals: {
         __API__: true,

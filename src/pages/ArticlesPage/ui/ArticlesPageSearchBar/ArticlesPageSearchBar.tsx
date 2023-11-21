@@ -34,7 +34,6 @@ const ArticlesPageSearchBar = memo((props: ArticlesPageSearchBarProps) => {
             disabled={loading}
             className={className}
             query={search}
-            onChange={onSearchChange}
             onSearch={onSearchChange}
         />
     );

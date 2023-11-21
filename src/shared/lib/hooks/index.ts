@@ -9,6 +9,5 @@ export {
     useAppDispatch, useDebounce, useHover,
     UseHoverBind,
     UseHoverResult, useInfiniteScroll, useInitialEffect,
-    useThrottle
+    useThrottle,
 };
-

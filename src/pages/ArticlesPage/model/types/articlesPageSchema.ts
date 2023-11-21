@@ -1,14 +1,11 @@
 import { EntityState } from '@reduxjs/toolkit';
-import { Article, ArticleListType, ArticleType } from 'entities/Article';
+import {
+    Article,
+    ArticleListType,
+    ArticleSortField,
+    ArticleTypeFilter,
+} from 'entities/Article';
 import { SortOrder } from 'entities/SortOrder';
-
-export enum ArticlesSortField {
-    TITLE = 'title',
-    VIEWS = 'views',
-    DATE = 'createdAt',
-}
-
-export type ArticleTypeFilter = ArticleType | 'ALL';
 
 export interface ArticlesPageSchema extends EntityState<Article> {
     loading?: boolean;
@@ -18,7 +15,7 @@ export interface ArticlesPageSchema extends EntityState<Article> {
     hasMore: boolean;
     view: ArticleListType;
     inited: boolean;
-    sortField: ArticlesSortField;
+    sortField: ArticleSortField;
     sortOrder: SortOrder;
     search: string;
     typeFilter: ArticleTypeFilter;

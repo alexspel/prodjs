@@ -12,7 +12,8 @@ interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
     autofocus?: boolean;
     label?: string;
-    readOnly?:boolean;
+    readOnly?: boolean;
+    allowClear?: boolean;
 }
 
 const Input = memo((props: InputProps) => {
@@ -24,6 +25,7 @@ const Input = memo((props: InputProps) => {
         autofocus = false,
         label,
         readOnly = false,
+        allowClear = false,
         ...otherProps
     } = props;
 
@@ -50,8 +52,9 @@ const Input = memo((props: InputProps) => {
     }, [autofocus]);
 
     return (
-        <div
-            className={cls.InputWrapper}
+        <div className={classNames(cls.InputWrapper, {
+            [cls.clearable]: allowClear,
+        })}
         >
             {label && <span>{label}</span>}
             <input

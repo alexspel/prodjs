@@ -1,4 +1,4 @@
-import { ArticleType } from 'entities/Article';
+import { ArticleType, ArticleTypeFilter } from 'entities/Article';
 import { memo, useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks';
@@ -6,7 +6,6 @@ import { Tab, Tabs } from 'shared/ui/Tabs';
 import { getArticlesPageTypeFilter } from '../../model/selectors/selectors';
 import { fetchArticles } from '../../model/services/fetchArticles';
 import { articlesPageActions } from '../../model/slices/ArticlesPageSlice';
-import { ArticleTypeFilter } from '../../model/types/articlesPageSchema';
 
 interface ArticlesPageTabsProps {
     className?: string;

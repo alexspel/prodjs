@@ -1,7 +1,7 @@
 export function getQueryParams(params: OptionalRecord<string, string>) {
     const search = new URLSearchParams(window.location.search);
     Object.entries(params).forEach(([name, value]) => {
-        if (value !== undefined && value !== '' && value !== null) {
+        if (value !== undefined && value !== null) {
             search.set(name, value);
         }
     });

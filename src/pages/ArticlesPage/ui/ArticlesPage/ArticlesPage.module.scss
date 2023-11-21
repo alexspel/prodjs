@@ -2,18 +2,3 @@
     width: 100%;
     gap: 20px;
 }
-
-.ArticlesPageHeader {
-    display:  flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-} 
-
-.fetchArticlesBlock,
-.loaderBlock {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}

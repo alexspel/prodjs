@@ -6,3 +6,18 @@
     gap: 10px;
     width: 100%;
 }
+
+.SearchBasWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    position: relative;
+}
+
+.clearBtn {
+    top: 6px;
+    right: 15px;
+    position: absolute;
+    flex: 1;
+}

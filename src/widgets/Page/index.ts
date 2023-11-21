@@ -3,6 +3,5 @@ import { ScrollSchema } from './model/types/scrollSchema';
 import Page from './ui/Page';
 
 export {
-    Page, ScrollSchema, scrollReducer
+    Page, ScrollSchema, scrollReducer,
 };
-

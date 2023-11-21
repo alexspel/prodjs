@@ -36,6 +36,14 @@ export enum ArticleType {
     SCIENCE = 'SCIENCE',
 }
 
+export enum ArticleSortField {
+    TITLE = 'title',
+    VIEWS = 'views',
+    DATE = 'createdAt',
+}
+
+export type ArticleTypeFilter = ArticleType | 'ALL';
+
 export enum ArticleListType {
     LIST = 'list',
     GRID = 'grid',

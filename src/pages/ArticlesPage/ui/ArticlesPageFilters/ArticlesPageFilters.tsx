@@ -1,3 +1,4 @@
+import { ArticleSortField } from 'entities/Article';
 import { SortOrder } from 'entities/SortOrder';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
@@ -7,17 +8,16 @@ import { Select, SelectOption } from 'shared/ui/Select';
 import { getArticlesPageSortField, getArticlesPageSortOrder } from '../../model/selectors/selectors';
 import { fetchArticles } from '../../model/services/fetchArticles';
 import { articlesPageActions } from '../../model/slices/ArticlesPageSlice';
-import { ArticlesSortField } from '../../model/types/articlesPageSchema';
 import cls from './ArticlesPageFilters.module.scss';
 
 interface ArticlesPageFiltersProps {
     className?: string;
 }
 
-const orderFieldOptions: SelectOption<ArticlesSortField>[] = [
-    { label: 'По количеству просмотров', value: ArticlesSortField.VIEWS },
-    { label: 'По названию', value: ArticlesSortField.TITLE },
-    { label: 'Дате публикации', value: ArticlesSortField.DATE },
+const orderFieldOptions: SelectOption<ArticleSortField>[] = [
+    { label: 'По количеству просмотров', value: ArticleSortField.VIEWS },
+    { label: 'По названию', value: ArticleSortField.TITLE },
+    { label: 'Дате публикации', value: ArticleSortField.DATE },
 ];
 
 const sortOrderOptions: SelectOption<SortOrder>[] = [
@@ -33,7 +33,7 @@ const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     const sortField = useSelector(getArticlesPageSortField);
     const sortOrder = useSelector(getArticlesPageSortOrder);
 
-    const onSortFieldChange = useCallback((newSortField: ArticlesSortField) => {
+    const onSortFieldChange = useCallback((newSortField: ArticleSortField) => {
         dispatch(articlesPageActions.setSortField(newSortField));
         dispatch(articlesPageActions.setPage(1));
         dispatch(fetchArticles({ replace: true }));
@@ -47,7 +47,7 @@ const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 
     return (
         <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
-            <Select<ArticlesSortField>
+            <Select<ArticleSortField>
                 className={cls.alignCenter}
                 label="Сортировать по:"
                 options={orderFieldOptions}

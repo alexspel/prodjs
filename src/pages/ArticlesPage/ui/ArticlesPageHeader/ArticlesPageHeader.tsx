@@ -1,5 +1,5 @@
 import {
-    memo
+    memo,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import ArticlesFilters from '../ArticlesPageFilters/ArticlesPageFilters';

@@ -1,5 +1,9 @@
 .InputWrapper {
-    width: 100%;
+    width: 100%; 
+}
+
+.clearable {
+    position: relative;
 }
 
 .Input {
@@ -9,7 +13,7 @@
     cursor: pointer;
     transition: 0.3s all;
     background: var(--bg-color);
-    border-color:var(--primary-color);
+    border-color: var(--primary-color);
     color: var(--primary-color);
 }
 
@@ -20,4 +24,10 @@
 
 .readonly {
     opacity: 0.7;
+}
+
+.clearBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
